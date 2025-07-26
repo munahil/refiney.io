@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Refiney.io – Automation Made Simple</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <h1>Refiney.io</h1>
+    <p>We help businesses automate tasks using GenAI, smart workflows, and API integrations.</p>
+    <a class="btn" href="#book">Book a Free Call</a>
+  </header>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul class="service-list">
+      <li><strong>Business Automation:</strong> Streamline operations using AI and automation tools</li>
+      <li><strong>CRM Workflows:</strong> Automate leads, follow-ups, and sales pipelines</li>
+      <li><strong>API Integration:</strong> Connect tools like Notion, Slack, Google Sheets, etc.</li>
+      <li><strong>GenAI Integration:</strong> Use GPT, embeddings, and agents to enhance workflows</li>
+    </ul>
+  </section>
+
+  <section id="how-it-works">
+    <h2>How It Works</h2>
+    <ol>
+      <li>1. Book a free discovery call</li>
+      <li>2. We understand your needs and suggest automation</li>
+      <li>3. We build and deploy it — fast!</li>
+    </ol>
+  </section>
+
+  <section id="book">
+    <h2>Book a Call</h2>
+    <p>Choose a time that works best for you:</p>
+    <div 
+      class="calendly-inline-widget" 
+      data-url="https://calendly.com/yourname" 
+      style="min-width:320px;height:700px;">
+    </div>
+    <script 
+      type="text/javascript" 
+      src="https://assets.calendly.com/assets/external/widget.js" 
+      async>
+    </script>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: hello@refiney.io</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Refiney.io — Simplifying business with automation</p>
+  </footer>
+
+</body>
+</html>
