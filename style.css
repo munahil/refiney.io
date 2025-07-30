@@ -744,8 +744,8 @@ footer {
   }
   
   .benefits-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
   
   .use-cases-grid {
@@ -755,7 +755,7 @@ footer {
   
   .benefit-item,
   .use-case {
-    padding: 25px;
+    padding: 30px;
     aspect-ratio: auto;
   }
   
@@ -777,7 +777,11 @@ footer {
   }
   
   .benefit-item h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+  }
+  
+  .benefit-item p {
+    font-size: 1rem;
   }
   
   .use-case h3 {
