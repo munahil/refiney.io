@@ -5,14 +5,88 @@
   box-sizing: border-box;
 }
 
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(26, 26, 46, 0.4);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 15px 0;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff, #b8b5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 35px;
+  margin: 0;
+}
+
+.nav-menu li a {
+  color: #b8b5ff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.nav-menu li a:hover {
+  color: #ffffff;
+  background: rgba(184, 181, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-cta {
+  background: linear-gradient(135deg, #533483, #0f3460) !important;
+  color: white !important;
+  padding: 10px 20px !important;
+  border-radius: 25px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 5px 15px rgba(83, 52, 131, 0.3) !important;
+}
+
+.nav-cta:hover {
+  background: linear-gradient(135deg, #6b4a9a, #1a4a7a) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(83, 52, 131, 0.4) !important;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  line-height: 1.6;
-  color: #e8e8e8;
-  background: linear-gradient(135deg, #2d1b69 0%, #5C576B 50%, #1a1a2e 100%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.7;
+  color: #f8f9fa;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #1a1a2e 100%);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 /* Animated background particles */
@@ -24,31 +98,31 @@ body::before {
   width: 100%;
   height: 100%;
   background-image: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
-  animation: backgroundShift 20s ease-in-out infinite;
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.08) 0%, transparent 50%);
+  animation: backgroundShift 25s ease-in-out infinite;
   z-index: -1;
 }
 
 @keyframes backgroundShift {
   0%, 100% { transform: translateX(0) translateY(0); }
-  25% { transform: translateX(-10px) translateY(-10px); }
-  50% { transform: translateX(10px) translateY(-5px); }
-  75% { transform: translateX(-5px) translateY(10px); }
+  25% { transform: translateX(-15px) translateY(-15px); }
+  50% { transform: translateX(15px) translateY(-8px); }
+  75% { transform: translateX(-8px) translateY(15px); }
 }
 
 /* Header/Hero section */
 .hero {
   text-align: center;
-  padding: 100px 20px;
-  background: rgba(92, 87, 107, 0.1);
-  backdrop-filter: blur(20px);
-  margin: 20px;
-  border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 120px 40px;
+  background: rgba(26, 26, 46, 0.3);
+  backdrop-filter: blur(30px);
+  margin: 80px 30px 30px 30px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.3),
+    0 40px 80px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
@@ -61,8 +135,8 @@ body::before {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  animation: shimmer 3s infinite;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+  animation: shimmer 4s infinite;
 }
 
 @keyframes shimmer {
@@ -71,24 +145,25 @@ body::before {
 }
 
 .hero h1 {
-  font-size: 4rem;
-  font-weight: 700;
+  font-size: 4.5rem;
+  font-weight: 800;
   background: linear-gradient(135deg, #ffffff, #b8b5ff, #ffffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 20px;
-  text-shadow: 0 0 30px rgba(184, 181, 255, 0.5);
+  margin-bottom: 30px;
+  text-shadow: 0 0 40px rgba(184, 181, 255, 0.3);
   position: relative;
+  letter-spacing: -0.02em;
 }
 
 .hero h1::after {
   content: '⚙️';
-  font-size: 0.8em;
+  font-size: 0.7em;
   position: absolute;
   top: 0;
-  right: -1.2em;
-  animation: rotate 4s linear infinite;
+  right: -1.5em;
+  animation: rotate 6s linear infinite;
 }
 
 @keyframes rotate {
@@ -97,30 +172,33 @@ body::before {
 }
 
 .hero p {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: #b8b5ff;
-  max-width: 700px;
-  margin: 0 auto 40px;
+  max-width: 800px;
+  margin: 0 auto 50px;
   line-height: 1.8;
+  font-weight: 400;
+  opacity: 0.95;
 }
 
 /* Button styles */
 .btn {
   display: inline-block;
-  background: linear-gradient(135deg, #5C576B, #2d1b69);
+  background: linear-gradient(135deg, #533483, #0f3460);
   color: white;
-  padding: 18px 40px;
+  padding: 20px 45px;
   text-decoration: none;
-  border-radius: 50px;
+  border-radius: 60px;
   font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.4s ease;
+  font-size: 1.15rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
-    0 10px 30px rgba(92, 87, 107, 0.4),
+    0 15px 35px rgba(83, 52, 131, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
+  letter-spacing: 0.02em;
 }
 
 .btn::before {
@@ -130,8 +208,8 @@ body::before {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.6s;
 }
 
 .btn:hover::before {
@@ -141,21 +219,21 @@ body::before {
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 
-    0 20px 40px rgba(92, 87, 107, 0.6),
+    0 25px 50px rgba(83, 52, 131, 0.6),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  background: linear-gradient(135deg, #6b5c7b, #3d2b89);
+  background: linear-gradient(135deg, #6b4a9a, #1a4a7a);
 }
 
 /* Section styles */
 section {
-  background: rgba(92, 87, 107, 0.1);
-  backdrop-filter: blur(20px);
-  margin: 30px 20px;
-  padding: 70px 50px;
-  border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(26, 26, 46, 0.3);
+  backdrop-filter: blur(30px);
+  margin: 40px 30px;
+  padding: 80px 60px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.3),
+    0 40px 80px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
@@ -168,71 +246,195 @@ section::before {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(184, 181, 255, 0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(184, 181, 255, 0.3), transparent);
 }
 
 section h2 {
-  font-size: 2.8rem;
+  font-size: 3rem;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   background: linear-gradient(135deg, #ffffff, #b8b5ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   position: relative;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 section h2::after {
   content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, #5C576B, #b8b5ff, #5C576B);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #533483, #b8b5ff, #533483);
   border-radius: 2px;
 }
 
 /* Services section */
 .service-list {
   list-style: none;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .service-list li {
-  background: linear-gradient(135deg, rgba(92, 87, 107, 0.2), rgba(45, 27, 105, 0.2));
-  padding: 30px;
-  margin-bottom: 25px;
-  border-radius: 20px;
-  border: 1px solid rgba(184, 181, 255, 0.2);
-  transition: all 0.4s ease;
+  background: linear-gradient(135deg, rgba(83, 52, 131, 0.15), rgba(15, 52, 96, 0.15));
+  padding: 40px;
+  margin-bottom: 30px;
+  border-radius: 25px;
+  border: 1px solid rgba(184, 181, 255, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
 
-
+.service-list li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184, 181, 255, 0.3), transparent);
+}
 
 .service-list li:hover {
-  transform: translateX(15px) translateY(-5px);
+  transform: translateX(20px) translateY(-8px);
   box-shadow: 
-    0 20px 40px rgba(92, 87, 107, 0.4),
+    0 30px 60px rgba(83, 52, 131, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  border-color: rgba(184, 181, 255, 0.4);
-  background: linear-gradient(135deg, rgba(92, 87, 107, 0.3), rgba(45, 27, 105, 0.3));
+  border-color: rgba(184, 181, 255, 0.3);
+  background: linear-gradient(135deg, rgba(83, 52, 131, 0.25), rgba(15, 52, 96, 0.25));
 }
 
 .service-list strong {
   color: #b8b5ff;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.service-list li p {
+  color: #e8e8e8;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Benefits section */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 35px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.benefit-item {
+  background: linear-gradient(135deg, rgba(83, 52, 131, 0.15), rgba(15, 52, 96, 0.15));
+  padding: 45px;
+  border-radius: 25px;
+  border: 1px solid rgba(184, 181, 255, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184, 181, 255, 0.4), transparent);
+}
+
+.benefit-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 35px 70px rgba(83, 52, 131, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: rgba(184, 181, 255, 0.3);
+  background: linear-gradient(135deg, rgba(83, 52, 131, 0.25), rgba(15, 52, 96, 0.25));
+}
+
+.benefit-item h3 {
+  font-size: 1.5rem;
+  color: #b8b5ff;
+  margin-bottom: 18px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.benefit-item p {
+  color: #e8e8e8;
+  line-height: 1.8;
+  font-size: 1.15rem;
+  opacity: 0.9;
+}
+
+/* Use cases section */
+.use-cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.use-case {
+  background: linear-gradient(135deg, rgba(83, 52, 131, 0.12), rgba(15, 52, 96, 0.12));
+  padding: 35px;
+  border-radius: 22px;
+  border: 1px solid rgba(184, 181, 255, 0.12);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.use-case::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184, 181, 255, 0.25), transparent);
+}
+
+.use-case:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 25px 50px rgba(83, 52, 131, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: rgba(184, 181, 255, 0.25);
+  background: linear-gradient(135deg, rgba(83, 52, 131, 0.2), rgba(15, 52, 96, 0.2));
+}
+
+.use-case h3 {
+  font-size: 1.4rem;
+  color: #b8b5ff;
+  margin-bottom: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.use-case p {
+  color: #e8e8e8;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  opacity: 0.9;
 }
 
 /* How it works section */
 #how-it-works ol {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
   list-style: none;
   counter-reset: step-counter;
@@ -240,48 +442,55 @@ section h2::after {
 
 #how-it-works li {
   counter-increment: step-counter;
-  background: linear-gradient(135deg, rgba(92, 87, 107, 0.2), rgba(45, 27, 105, 0.2));
-  padding: 35px;
-  margin-bottom: 30px;
-  border-radius: 20px;
-  border: 1px solid rgba(184, 181, 255, 0.2);
+  background: linear-gradient(135deg, rgba(83, 52, 131, 0.15), rgba(15, 52, 96, 0.15));
+  padding: 45px;
+  margin-bottom: 35px;
+  border-radius: 25px;
+  border: 1px solid rgba(184, 181, 255, 0.15);
   position: relative;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
 
 #how-it-works li:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px);
   box-shadow: 
-    0 25px 50px rgba(92, 87, 107, 0.4),
+    0 35px 70px rgba(83, 52, 131, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  border-color: rgba(184, 181, 255, 0.4);
+  border-color: rgba(184, 181, 255, 0.3);
 }
 
 #how-it-works li::before {
   content: counter(step-counter);
-  background: linear-gradient(135deg, #5C576B, #2d1b69);
+  background: linear-gradient(135deg, #533483, #0f3460);
   color: white;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 1.2rem;
+  font-weight: 700;
+  font-size: 1.4rem;
   position: absolute;
-  left: 15px;
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
   border: 3px solid rgba(184, 181, 255, 0.3);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   z-index: 2;
 }
 
 #how-it-works li {
-  padding-left: 90px;
-  margin-left: 30px;
+  padding-left: 100px;
+  margin-left: 40px;
+}
+
+#how-it-works li p {
+  color: #e8e8e8;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  opacity: 0.9;
 }
 
 /* Book section */
@@ -290,23 +499,27 @@ section h2::after {
 }
 
 #book p {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: #b8b5ff;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Calendly widget styling */
 .calendly-inline-widget {
-  border-radius: 25px !important;
+  border-radius: 30px !important;
   overflow: hidden !important;
   box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.3),
+    0 40px 80px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   max-width: 800px !important;
-  margin: 30px auto !important;
-  background: rgba(92, 87, 107, 0.15) !important;
-  backdrop-filter: blur(20px) !important;
+  margin: 40px auto !important;
+  background: rgba(26, 26, 46, 0.3) !important;
+  backdrop-filter: blur(30px) !important;
   position: relative !important;
 }
 
@@ -317,8 +530,8 @@ section h2::after {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  animation: shimmer 3s infinite;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+  animation: shimmer 4s infinite;
   z-index: 1;
 }
 
@@ -326,7 +539,7 @@ section h2::after {
 .calendly-inline-widget iframe {
   background: transparent !important;
   min-height: 700px !important;
-  border-radius: 25px !important;
+  border-radius: 30px !important;
   position: relative;
   z-index: 2;
 }
@@ -339,28 +552,28 @@ section h2::after {
 
 /* Alternative: Style the cookie banner to match theme */
 .calendly-inline-widget .calendly-cookie-banner {
-  background: rgba(92, 87, 107, 0.9) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(26, 26, 46, 0.9) !important;
+  backdrop-filter: blur(30px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   color: #b8b5ff !important;
-  border-radius: 10px !important;
+  border-radius: 15px !important;
 }
 
 /* Additional Calendly styling improvements */
 .calendly-inline-widget {
-  transition: all 0.3s ease !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .calendly-inline-widget:hover {
-  transform: translateY(-5px) !important;
+  transform: translateY(-8px) !important;
   box-shadow: 
-    0 35px 70px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    0 50px 100px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
 }
 
 /* Style Calendly internal elements */
 .calendly-inline-widget iframe {
-  filter: brightness(1.1) contrast(1.1) !important;
+  filter: brightness(1.05) contrast(1.05) !important;
 }
 
 /* Contact section */
@@ -369,35 +582,208 @@ section h2::after {
 }
 
 #contact p {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: #b8b5ff;
   font-weight: 600;
   background: linear-gradient(135deg, #b8b5ff, #ffffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  margin-bottom: 15px;
+}
+
+#contact p:last-child {
+  font-size: 1.2rem;
+  color: #e8e8e8;
+  opacity: 0.8;
+  font-weight: 400;
+  background: none;
+  -webkit-text-fill-color: #e8e8e8;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 50px 20px;
-  color: rgba(184, 181, 255, 0.7);
+  padding: 60px 30px;
+  color: rgba(184, 181, 255, 0.6);
   font-size: 1.1rem;
-  background: rgba(92, 87, 107, 0.1);
+  background: rgba(15, 15, 35, 0.4);
+  backdrop-filter: blur(30px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 40px;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  background: rgba(26, 26, 46, 0.95);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  padding: 0;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 
+    0 50px 100px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px 20px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff, #b8b5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.close {
+  color: #b8b5ff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(184, 181, 255, 0.1);
+}
+
+.close:hover {
+  color: #ffffff;
+  background: rgba(184, 181, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.modal-body {
+  padding: 30px 40px 40px 40px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+
+/* Modal Calendly Widget Styling */
+.modal .calendly-inline-widget {
+  background: transparent !important;
+  border-radius: 15px !important;
+  overflow: hidden !important;
+  margin: 0 auto !important;
+  max-width: 100% !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transform: scale(0.98) !important;
+  opacity: 0.9 !important;
+}
+
+.modal .calendly-inline-widget.loaded {
+  transform: scale(1) !important;
+  opacity: 1 !important;
+}
+
+/* Hide scrollbar in modal */
+.modal-content {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* Internet Explorer 10+ */
+}
+
+.modal-content::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+}
+
+.modal-body {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* Internet Explorer 10+ */
+}
+
+.modal-body::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+}
+
+.modal .calendly-inline-widget iframe {
+  background: transparent !important;
+  border-radius: 15px !important;
+  filter: brightness(1.1) contrast(1.1) !important;
+}
+
+.modal .calendly-inline-widget .calendly-cookie-banner {
+  display: none !important;
+}
+
+.book-btn {
+  margin-top: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
+  .nav-container {
+    padding: 0 20px;
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+  
+  .hero {
+    margin: 70px 15px 15px 15px;
+  }
+  
   .hero h1 {
-    font-size: 2.8rem;
+    font-size: 3rem;
   }
   
   .hero h1::after {
-    right: -1em;
-    font-size: 0.7em;
+    right: -1.2em;
+    font-size: 0.6em;
   }
   
   .hero p {
@@ -405,29 +791,75 @@ footer {
   }
   
   section {
-    padding: 50px 25px;
-    margin: 15px 10px;
+    padding: 50px 30px;
+    margin: 20px 15px;
   }
   
   section h2 {
     font-size: 2.2rem;
   }
   
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .use-cases-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .benefit-item,
+  .use-case {
+    padding: 30px;
+  }
+  
   .service-list li,
   #how-it-works li {
-    padding: 25px;
+    padding: 30px;
   }
   
   #how-it-works li::before {
-    width: 40px;
-    height: 40px;
-    left: 10px;
-    font-size: 1rem;
+    width: 45px;
+    height: 45px;
+    left: 15px;
+    font-size: 1.1rem;
   }
   
   #how-it-works li {
-    padding-left: 70px;
-    margin-left: 20px;
+    padding-left: 80px;
+    margin-left: 25px;
+  }
+  
+  .benefit-item h3 {
+    font-size: 1.3rem;
+  }
+  
+  .use-case h3 {
+    font-size: 1.2rem;
+  }
+  
+  .modal-content {
+    width: 95%;
+    max-width: none;
+    margin: 20px;
+  }
+  
+  .modal-header {
+    padding: 25px 25px 15px 25px;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .modal-body {
+    padding: 20px 25px 30px 25px;
+  }
+  
+  .modal .calendly-inline-widget {
+    min-width: 280px !important;
+    height: 600px !important;
   }
 }
 
@@ -438,13 +870,13 @@ html {
 
 /* Animation for sections */
 section {
-  animation: fadeInUp 1s ease-out;
+  animation: fadeInUp 1.2s ease-out;
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
@@ -454,18 +886,44 @@ section {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(92, 87, 107, 0.1);
+  background: rgba(26, 26, 46, 0.3);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #5C576B, #2d1b69);
-  border-radius: 4px;
+  background: linear-gradient(135deg, #533483, #0f3460);
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #6b5c7b, #3d2b89);
+  background: linear-gradient(135deg, #6b4a9a, #1a4a7a);
+}
+
+/* Mobile Modal Styles */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    max-width: none;
+    margin: 20px;
+  }
+  
+  .modal-header {
+    padding: 25px 25px 15px 25px;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .modal-body {
+    padding: 20px 25px 30px 25px;
+  }
+  
+  .modal .calendly-inline-widget {
+    min-width: 280px !important;
+    height: 600px !important;
+  }
 }
