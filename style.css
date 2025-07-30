@@ -270,23 +270,65 @@ section h2 {
   opacity: 0.9;
 }
 
+.service-list li ul {
+  list-style: square;
+  margin: 15px 0 0 20px;
+  padding: 0;
+}
+
+.service-list li ul {
+  list-style: none;
+  margin: 15px 0 0 20px;
+  padding: 0;
+}
+
+.service-list li ul li {
+  color: #4a5568;
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  opacity: 0.9;
+  background: none;
+  border: none;
+  padding: 0 0 0 25px;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+}
+
+.service-list li ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  background: #533483;
+  border-radius: 50%;
+  box-shadow: none;
+}
+
 /* Benefits section */
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 40px;
-  max-width: 1400px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1800px;
   margin: 0 auto;
 }
 
 .benefit-item {
   background: linear-gradient(135deg, #f8f9ff, #f0f2ff);
-  padding: 50px;
+  padding: 30px;
   border-radius: 6px;
   border: 1px solid rgba(83, 52, 131, 0.08);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 
@@ -294,17 +336,19 @@ section h2 {
 
 
 .benefit-item h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #533483;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   font-weight: 550;
   letter-spacing: 0.01em;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 .benefit-item p {
   color: #4a5568;
-  line-height: 1.8;
-  font-size: 1.15rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
   opacity: 0.9;
 }
 
@@ -347,7 +391,7 @@ section h2 {
 
 /* How it works section */
 #how-it-works ol {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   list-style: none;
   counter-reset: step-counter;
@@ -370,12 +414,12 @@ section h2 {
 #how-it-works li::before {
   content: counter(step-counter);
   position: absolute;
-  left: 20px;
+  left: 30px;
   top: 50%;
   transform: translateY(-50%);
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, #533483, #8b7fd9);
+  background: #533483;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -385,17 +429,26 @@ section h2 {
   color: white;
   z-index: 2;
   border: 1px solid rgba(83, 52, 131, 0.2);
+  box-shadow: none;
 }
 
 #how-it-works li {
-  padding-left: 70px;
-  margin-left: 40px;
+  padding-left: 100px;
+  margin-left: 0;
+}
+
+#how-it-works li strong {
+  font-size: 1.3rem;
+  color: #533483;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
 }
 
 #how-it-works li p {
   color: #4a5568;
   line-height: 1.8;
-  font-size: 1.1rem;
+  font-size: 1rem;
   opacity: 0.9;
 }
 
@@ -648,6 +701,13 @@ footer {
 }
 
 /* Responsive design */
+@media (max-width: 1400px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-container {
     padding: 0 20px;
@@ -684,7 +744,7 @@ footer {
   }
   
   .benefits-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 25px;
   }
   
@@ -695,7 +755,8 @@ footer {
   
   .benefit-item,
   .use-case {
-    padding: 30px;
+    padding: 25px;
+    aspect-ratio: auto;
   }
   
   .service-list li,
@@ -716,7 +777,7 @@ footer {
   }
   
   .benefit-item h3 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   
   .use-case h3 {
